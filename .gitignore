@@ -1,3 +1,7 @@
+# Generated directory
+project-dist
+files-copy
+
 # Logs
 logs
 *.log
