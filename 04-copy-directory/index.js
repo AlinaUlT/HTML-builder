@@ -4,10 +4,11 @@ const dest = 'files-copy';
 
 async function copyDirectory() {
 
+  await fs.promises.mkdir(__dirname + '/' + dest, { recursive: true });
   fs.readdir(__dirname + '/' + src, { withFileTypes: true },
     async (err, files) => {
       await fs.promises.rm(__dirname + '/' + dest, { recursive: true });
-      fs.mkdir(__dirname + '/' + dest, { recursive: false }, async (err, data) => {
+      await fs.promises.mkdir(__dirname + '/' + dest, { recursive: true }, async (err, data) => {
         if (err) {
           console.log("the directory already exists, it will be overwritten");
         }
